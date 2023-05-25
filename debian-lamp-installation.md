@@ -135,6 +135,42 @@ Great success!
 
 ---
 
+### Exporting and importing our database
+
+To get our database up and running with the tables and data we had on our host-pc, we need to do 3 things. Btw this is also **how we backup a mysql-server**:
+
+1. Export the database to a .sql file
+1. Move the .sql file over to our server
+1. Import the .sql file on the new server
+
+We can use the tool `mysqldump` to achieve this.
+
+---
+
+To export:
+
+```console
+mysqldump -u <username> <databasename> > exported_db_file.sql
+```
+
+Now move the file over to the server using your preferred method (hopefully scp)
+
+To import:
+
+```console
+mariadb -u <username> <databasename> -p < exported_db_file.sql
+```
+
+This will re-create all the tables and data that you had in your database in the first place.
+
+You can play around with the `--no-data` argument on `mysqldump` if you only want to export the tables, not the data.
+
+---
+
+
+
+
+
 ### Copy over files using git (dont do this)
 
 It is generally a bad idea to use git to clone our repository to our new server. The reason for this is that git can be a bit quirky when configuring/using for the first time and it can make our job - which is to simply **copy our application over from our host-pc to the server** - unneccesarily complicated. 
