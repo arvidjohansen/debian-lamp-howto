@@ -33,7 +33,19 @@ Domain name: `kuben.it`
 3. Enter the same for username, I will enter `arvidj` here also.
 4. Make a nice password for your new user-account and **write it down immediately!**
 
-Now you will have 2 users on your system: 1 root user which has full administrator rights, and 1 user 
+Now you will have 2 users on your system: 1 root user which has full administrator rights, and 1 normal user 
+
+---
+
+**Important!** when you do input a root-password in addition to a user-password, the `sudo` tool will not be installed by default, and you will have to install it by first switching to root by running `su root` and inputting the **password for the root-user**, then running `apt install sudo`. You can now use both `su` and `sudo` to run commands with superuser privileges, whatever your prference may be.
+
+There are **2 ways to use the `sudo`-tool:**
+
+1. running a single command as root by typing `sudo <command>`. This is nice if you only have to do one or two commands, but if you need to more it can be tiresome.
+2. If you know you will need root-privileges to run many commands in a row, or just want to have a command prompt as root, you can use `sudo -i` where -i stands for *interactive*.
+3. In both of the previous commands you will be asked for your password. This is ofcourse the password to the current user you are logged in as, not the root user.
+
+The other way to enter the command line as root is by using the `su` comamnd which stands for *switch user*, by typing `su - <target user account>` which usually will be `su - root`. **Important! You must use that proper format with su space dash space root for it to work, or you will not have the proper path variable when you enter as root, which can lead to important binaries missing from the path like useradd ** 
 
 ---
 
