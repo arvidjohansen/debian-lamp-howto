@@ -119,7 +119,7 @@ Now we can verify that the files have been moved over by using `ls` in our home 
 
 Now that we have copied our application-files to our home-folder, the full path to our application is `/home/arvidj/wiki`. 
 
-All we have to do now is to point the current root of the webserver (`/var/www/html`) to this directory. This can be done by logging in as root `sudo -i` and then making a link from the current root-directory to our newly clone git repo.
+All we have to do now is to point the current root of the webserver (`/var/www/html`) to this directory. This can be done by logging in as root `sudo -i` and then making a link from `/var/www/html` to the root of our web-application which we just copied over (`/home/arvidj/wiki`).
 
 ```
 ln -s /home/arvidj/wiki/ /var/www/html
